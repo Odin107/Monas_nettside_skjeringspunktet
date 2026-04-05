@@ -81,60 +81,40 @@ h2 {
   padding-top: 48px;
 }
 
-.about-layout {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+.about-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
-.about-buttons {
+.person-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  flex-shrink: 0;
+  gap: 20px;
 }
 
-.person-btn {
-  display: block;
-  padding: 6px 14px;
-  font-size: 0.8rem;
+.person-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #e8e4df;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 12px;
+}
+
+.person-photo-label {
+  font-size: 0.7rem;
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  background: #fff;
-  border: 1px solid #bbb;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-  min-width: 72px;
-  text-align: left;
+  color: #888;
 }
 
-.person-btn:hover {
-  border-color: #111;
-}
-
-.person-btn.active {
-  background: #111;
-  color: #fff;
-  border-color: #111;
-}
-
-.about-text {
-  flex: 1;
-}
-
-.about-text h2 {
-  margin-bottom: 16px;
-}
-
-.person-content p {
-  font-size: 1rem;
+.person-card p {
+  font-size: 0.95rem;
   line-height: 1.8;
-  max-width: 560px;
-}
-
-.hidden {
-  display: none;
 }
 
 /* ===========================
@@ -251,13 +231,8 @@ h2 {
    Responsive
    =========================== */
 @media (max-width: 600px) {
-  .about-layout {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .about-buttons {
-    flex-direction: row;
+  .about-cards {
+    grid-template-columns: 1fr;
   }
 
   .projects-grid {
