@@ -3,44 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Skjæringspunktet – portfolio" />
+    <meta name="description" content="Skjæringspunktet – portfolio for Kai og Mona" />
     <title>Skjæringspunktet</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
 
-    <header>
-      <nav>
-        <a href="#" class="logo">Skjæringspunktet</a>
-        <ul>
-          <li><a href="#about">Om oss</a></li>
-          <li><a href="#work">Arbeid</a></li>
-          <li><a href="#contact">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- HERO -->
+    <section id="hero">
+      <h1 class="site-title">Skjæringspunktet</h1>
+      <div class="hero-graphic" aria-hidden="true">
+        <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+          <!-- diagonal line from top-left toward spiral -->
+          <line x1="0" y1="0" x2="420" y2="180" stroke="#111" stroke-width="1.5"/>
+          <!-- spiral (Archimedean approximation with path) -->
+          <path d="
+            M 420 180
+            m 0 -2
+            a 2 2 0 1 1 -0.01 0
+            m -3 -3
+            a 5 5 0 1 1 -0.01 0
+            m -5 -5
+            a 10 10 0 1 1 -0.01 0
+            m -8 -8
+            a 18 18 0 1 1 -0.01 0
+            m -12 -12
+            a 28 28 0 1 1 -0.01 0
+          " fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
 
-    <main>
-      <section id="hero">
-        <!-- Hero content -->
-      </section>
+    <!-- OM OSS -->
+    <section id="about">
+      <div class="about-layout">
+        <div class="about-buttons">
+          <button class="person-btn active" data-person="kai">Kai</button>
+          <button class="person-btn" data-person="mona">Mona</button>
+        </div>
+        <div class="about-text">
+          <h2>Om oss</h2>
+          <div class="person-content" id="kai-content">
+            <p>Kai er kunstner og designer med fokus på historiske materialer, interiør og skulptur. Med bakgrunn fra tradisjonshåndverk arbeider han i skjæringspunktet mellom fortid og nåtid.</p>
+          </div>
+          <div class="person-content hidden" id="mona-content">
+            <p>Mona er konsulent og kurator med spesialisering innen historisk interiør og offentlige prosjekter. Hun bringer faglig dybde og personlig engasjement til hvert oppdrag.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section id="about">
-        <!-- About section -->
-      </section>
+    <!-- PROSJEKTER -->
+    <section id="projects">
+      <div class="projects-grid">
 
-      <section id="work">
-        <!-- Portfolio/work section -->
-      </section>
+        <!-- Kronologisk -->
+        <div class="projects-col" id="kronologisk">
+          <h2>Prosjekter kronologisk</h2>
+          <div class="timeline">
+            <div class="timeline-year top">2026</div>
+            <div class="timeline-line">
+              <div class="timeline-arrow"></div>
+            </div>
+            <div class="timeline-year bottom">1997</div>
+          </div>
+        </div>
 
-      <section id="contact">
-        <!-- Contact section -->
-      </section>
-    </main>
+        <!-- Tematisk -->
+        <div class="projects-col" id="tematisk">
+          <h2>Prosjekter tematisk</h2>
+          <ul class="theme-list">
+            <li><a href="#">Offentlige prosjekter</a></li>
+            <li><a href="#">Historisk interiør</a></li>
+            <li><a href="#">Konsulent oppdrag</a></li>
+            <li><a href="#">Historisk verktøy</a></li>
+            <li><a href="#">Skulptur</a></li>
+            <li><a href="#">Personlige favoritter</a></li>
+          </ul>
+        </div>
 
-    <footer>
-      <!-- Footer content -->
-    </footer>
+      </div>
+    </section>
+
+    <!-- KONTAKT INFO -->
+    <section id="contact">
+      <h2>Kontakt info</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="contact-label">E-post</span>
+          <span class="contact-value">post@skjeringspunktet.no</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Telefon</span>
+          <span class="contact-value">+47 000 00 000</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Adresse</span>
+          <span class="contact-value">Norge</span>
+        </div>
+      </div>
+    </section>
 
     <script src="js/main.js"></script>
   </body>
