@@ -62,35 +62,34 @@
 
     <!-- PROSJEKTER -->
     <section id="projects">
-      <div class="projects-grid">
+      <div class="projects-toggle-bar">
+        <button class="projects-toggle-btn active" data-view="kronologisk">Kronologisk</button>
+        <button class="projects-toggle-btn" data-view="tematisk">Tematisk</button>
+      </div>
 
-        <!-- Kronologisk -->
-        <div class="projects-col" id="kronologisk">
-          <h2>Prosjekter kronologisk</h2>
-          <!-- Fylles inn av main.js fra projects-data.js -->
-          <div class="timeline">
-            <div class="timeline-year top">2026</div>
-            <div class="timeline-line">
-              <div class="timeline-arrow"></div>
-            </div>
-            <div class="timeline-year bottom">1997</div>
+      <!-- Kronologisk view -->
+      <div class="projects-view" id="kronologisk">
+        <!-- Fylles inn av main.js fra projects-data.js -->
+        <div class="timeline">
+          <div class="timeline-year top">2026</div>
+          <div class="timeline-line">
+            <div class="timeline-arrow"></div>
           </div>
+          <div class="timeline-year bottom">1997</div>
         </div>
+      </div>
 
-        <!-- Tematisk -->
-        <div class="projects-col" id="tematisk">
-          <h2>Prosjekter tematisk</h2>
-          <!-- Fylles inn av main.js fra projects-data.js -->
-          <ul class="theme-list">
-            <li><a href="#">Offentlige prosjekter</a></li>
-            <li><a href="#">Historisk interiør</a></li>
-            <li><a href="#">Konsulent oppdrag</a></li>
-            <li><a href="#">Historisk verktøy</a></li>
-            <li><a href="#">Skulptur</a></li>
-            <li><a href="#">Personlige favoritter</a></li>
-          </ul>
-        </div>
-
+      <!-- Tematisk view -->
+      <div class="projects-view" id="tematisk" hidden>
+        <!-- Fylles inn av main.js fra projects-data.js -->
+        <ul class="theme-list">
+          <li><a href="#">Offentlige prosjekter</a></li>
+          <li><a href="#">Historisk interiør</a></li>
+          <li><a href="#">Konsulent oppdrag</a></li>
+          <li><a href="#">Historisk verktøy</a></li>
+          <li><a href="#">Skulptur</a></li>
+          <li><a href="#">Personlige favoritter</a></li>
+        </ul>
       </div>
     </section>
 

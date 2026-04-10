@@ -85,7 +85,27 @@ function renderTematisk() {
   });
 }
 
+// Toggle between kronologisk and tematisk views
+function initProjectsToggle() {
+  const buttons = document.querySelectorAll('.projects-toggle-btn');
+  const views = document.querySelectorAll('.projects-view');
+
+  buttons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const target = btn.getAttribute('data-view');
+
+      buttons.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      views.forEach(function(v) {
+        v.hidden = v.id !== target;
+      });
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   renderKronologisk();
   renderTematisk();
+  initProjectsToggle();
 });
