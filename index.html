@@ -37,22 +37,26 @@
     <!-- OM OSS -->
     <section id="about">
       <h2>Om oss</h2>
-      <div class="about-cards">
 
-        <div class="person-card">
-          <div class="person-photo" aria-label="Foto av Kai">
-            <span class="person-photo-label">Kai</span>
-          </div>
+      <!-- Felles foto – legg bildefilen i assets/images/kai-og-mona.jpg -->
+      <div class="team-photo-wrapper">
+        <img
+          src="assets/images/kai-og-mona.jpg"
+          alt="Kai og Mona"
+          class="team-photo"
+        />
+      </div>
+
+      <!-- Individuelle presentasjoner -->
+      <div class="about-bios">
+        <div class="person-bio">
+          <h3 class="person-name">Kai</h3>
           <p>Kai er kunstner og designer med fokus på historiske materialer, interiør og skulptur. Med bakgrunn fra tradisjonshåndverk arbeider han i skjæringspunktet mellom fortid og nåtid.</p>
         </div>
-
-        <div class="person-card">
-          <div class="person-photo" aria-label="Foto av Mona">
-            <span class="person-photo-label">Mona</span>
-          </div>
+        <div class="person-bio">
+          <h3 class="person-name">Mona</h3>
           <p>Mona er konsulent og kurator med spesialisering innen historisk interiør og offentlige prosjekter. Hun bringer faglig dybde og personlig engasjement til hvert oppdrag.</p>
         </div>
-
       </div>
     </section>
 
@@ -63,6 +67,7 @@
         <!-- Kronologisk -->
         <div class="projects-col" id="kronologisk">
           <h2>Prosjekter kronologisk</h2>
+          <!-- Fylles inn av main.js fra projects-data.js -->
           <div class="timeline">
             <div class="timeline-year top">2026</div>
             <div class="timeline-line">
@@ -75,6 +80,7 @@
         <!-- Tematisk -->
         <div class="projects-col" id="tematisk">
           <h2>Prosjekter tematisk</h2>
+          <!-- Fylles inn av main.js fra projects-data.js -->
           <ul class="theme-list">
             <li><a href="#">Offentlige prosjekter</a></li>
             <li><a href="#">Historisk interiør</a></li>
@@ -107,6 +113,19 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="footer-inner">
+        <nav class="social-links" aria-label="Sosiale medier">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">LinkedIn</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Skjæringspunktet</p>
+      </div>
+    </footer>
+
+    <script src="js/projects-data.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
