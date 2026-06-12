@@ -795,3 +795,142 @@ a.contact-value:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===========================
+   Tagline & skip link
+   =========================== */
+.site-tagline {
+  font-style: italic;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #111;
+  color: #faf9f7;
+  font-size: 0.75rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 16px;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* ===========================
+   Hero draw-in animation
+   =========================== */
+.hero-graphic line,
+.hero-graphic path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-stroke 1.8s ease-out forwards;
+}
+
+.hero-graphic path {
+  animation-delay: 0.5s;
+  animation-duration: 2.2s;
+}
+
+@keyframes draw-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ===========================
+   Scroll reveal (class added by JS)
+   =========================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===========================
+   Prosjekt prev/next-navigasjon
+   =========================== */
+.projekt-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #ddd;
+}
+
+.projekt-nav a {
+  font-size: 0.85rem;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+  max-width: 45%;
+}
+
+.projekt-nav a:hover {
+  border-color: #111;
+}
+
+.projekt-nav .nav-label {
+  display: block;
+  font-size: 0.7rem;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.projekt-nav .nav-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+/* ===========================
+   404
+   =========================== */
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  border-bottom: none;
+}
+
+.not-found-text {
+  font-size: 1rem;
+  color: #555;
+  max-width: 480px;
+}
+
+/* ===========================
+   Reduced motion overrides
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero-graphic line,
+  .hero-graphic path {
+    animation: none;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

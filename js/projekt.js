@@ -34,6 +34,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const desc = project.description || project.shortDescription || '';
 
+  // Prev/next navigation between projects, newest first
+  const sorted = [...PROJECTS].sort(function(a, b) { return b.year - a.year; });
+  const idx = sorted.findIndex(function(p) { return p.id === project.id; });
+  const prev = idx > 0 ? sorted[idx - 1] : null;
+  const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+
+  let navHTML = '';
+  if (prev || next) {
+    navHTML = '<nav class="projekt-nav" aria-label="Flere prosjekter">' +
+      (prev
+        ? '<a href="projekt.html?id=' + encodeURIComponent(prev.id) + '" class="nav-prev">' +
+          '<span class="nav-label">← Nyere</span>' + prev.title + '</a>'
+        : '') +
+      (next
+        ? '<a href="projekt.html?id=' + encodeURIComponent(next.id) + '" class="nav-next">' +
+          '<span class="nav-label">Eldre →</span>' + next.title + '</a>'
+        : '') +
+      '</nav>';
+  }
+
   content.innerHTML =
     '<section class="projekt-detail">' +
       '<div class="projekt-meta">' +
@@ -43,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
       '<h1 class="projekt-title">' + project.title + '</h1>' +
       imagesHTML +
       '<div class="projekt-description"><p>' + desc + '</p></div>' +
+      navHTML +
     '</section>';
 
   const yearEl = document.getElementById('footer-year');

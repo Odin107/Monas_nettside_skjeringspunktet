@@ -113,9 +113,31 @@ function updateFooterYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+// Fade sections in as they scroll into view
+function initReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  const targets = document.querySelectorAll('#about, #projects, #contact');
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach(function(t) {
+    t.classList.add('reveal');
+    observer.observe(t);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   renderKronologisk();
   renderTematisk();
   initProjectsToggle();
   updateFooterYear();
+  initReveal();
 });
