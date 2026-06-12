@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Skjæringspunktet – portfolio for Kai og Mona" />
+    <meta name="description" content="Skjæringspunktet – portfolio for Kai og Mona. Kunst, design og historiske prosjekter." />
+    <meta name="theme-color" content="#faf9f7" />
+    <meta property="og:title" content="Skjæringspunktet" />
+    <meta property="og:description" content="Portfolio for Kai og Mona – kunst, design og historiske prosjekter." />
+    <meta property="og:type" content="website" />
     <title>Skjæringspunktet</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
@@ -12,6 +16,11 @@
     <!-- HERO -->
     <section id="hero">
       <h1 class="site-title">Skjæringspunktet</h1>
+      <nav class="site-nav" aria-label="Hovedmeny">
+        <a href="#about">Om oss</a>
+        <a href="#projects">Prosjekter</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
       <div class="hero-graphic" aria-hidden="true">
         <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
           <!-- diagonal line from top-left toward spiral -->
@@ -40,10 +49,13 @@
 
       <!-- Felles foto – legg bildefilen i assets/images/kai-og-mona.jpg -->
       <div class="team-photo-wrapper">
+        <span class="team-photo-placeholder-label" aria-hidden="true">Kai &amp; Mona</span>
         <img
           src="assets/images/kai-og-mona.jpg"
-          alt="Kai og Mona"
+          alt="Kai og Mona foran huset sitt"
           class="team-photo"
+          loading="lazy"
+          onerror="this.style.display='none'"
         />
       </div>
 
@@ -62,13 +74,15 @@
 
     <!-- PROSJEKTER -->
     <section id="projects">
-      <div class="projects-toggle-bar">
-        <button class="projects-toggle-btn active" data-view="kronologisk">Kronologisk</button>
-        <button class="projects-toggle-btn" data-view="tematisk">Tematisk</button>
+      <h2>Prosjekter</h2>
+
+      <div class="projects-toggle-bar" role="tablist" aria-label="Velg visning av prosjekter">
+        <button class="projects-toggle-btn active" data-view="kronologisk" role="tab" aria-selected="true">Kronologisk</button>
+        <button class="projects-toggle-btn" data-view="tematisk" role="tab" aria-selected="false">Tematisk</button>
       </div>
 
       <!-- Kronologisk view -->
-      <div class="projects-view" id="kronologisk">
+      <div class="projects-view" id="kronologisk" role="tabpanel">
         <!-- Fylles inn av main.js fra projects-data.js -->
         <div class="timeline">
           <div class="timeline-year top">2026</div>
@@ -80,7 +94,7 @@
       </div>
 
       <!-- Tematisk view -->
-      <div class="projects-view" id="tematisk" hidden>
+      <div class="projects-view" id="tematisk" role="tabpanel" hidden>
         <!-- Fylles inn av main.js fra projects-data.js -->
         <ul class="theme-list">
           <li><a href="#">Offentlige prosjekter</a></li>
@@ -99,11 +113,11 @@
       <div class="contact-grid">
         <div class="contact-item">
           <span class="contact-label">E-post</span>
-          <span class="contact-value">post@skjeringspunktet.no</span>
+          <a class="contact-value" href="mailto:post@skjeringspunktet.no">post@skjeringspunktet.no</a>
         </div>
         <div class="contact-item">
           <span class="contact-label">Telefon</span>
-          <span class="contact-value">+47 000 00 000</span>
+          <a class="contact-value" href="tel:+4700000000">+47 000 00 000</a>
         </div>
         <div class="contact-item">
           <span class="contact-label">Adresse</span>
@@ -116,11 +130,11 @@
     <footer id="footer">
       <div class="footer-inner">
         <nav class="social-links" aria-label="Sosiale medier">
-          <a href="#" class="social-link">Facebook</a>
-          <a href="#" class="social-link">Instagram</a>
-          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link" rel="noopener">Facebook</a>
+          <a href="#" class="social-link" rel="noopener">Instagram</a>
+          <a href="#" class="social-link" rel="noopener">LinkedIn</a>
         </nav>
-        <p class="footer-copy">&copy; 2026 Skjæringspunktet</p>
+        <p class="footer-copy">&copy; <span id="footer-year">2026</span> Skjæringspunktet</p>
       </div>
     </footer>
 

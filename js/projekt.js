@@ -5,15 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const id = params.get('id');
   const content = document.getElementById('projekt-content');
 
+  const notFound = '<section><p>Prosjekt ikke funnet.</p><p><a href="index.html" class="back-link">← Tilbake til forsiden</a></p></section>';
+
   if (!id || typeof PROJECTS === 'undefined') {
-    content.innerHTML = '<section><p>Prosjekt ikke funnet.</p><a href="index.html">← Tilbake</a></section>';
+    content.innerHTML = notFound;
     return;
   }
 
   const project = PROJECTS.find(function(p) { return p.id === id; });
 
   if (!project) {
-    content.innerHTML = '<section><p>Prosjekt ikke funnet.</p><a href="index.html">← Tilbake</a></section>';
+    content.innerHTML = notFound;
     return;
   }
 
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (project.images && project.images.length > 0) {
     imagesHTML = '<div class="projekt-images">' +
       project.images.map(function(src) {
-        return '<img src="' + src + '" alt="' + project.title + '" class="projekt-image" />';
+        return '<img src="' + src + '" alt="' + project.title + '" class="projekt-image" loading="lazy" />';
       }).join('') +
       '</div>';
   } else {
@@ -42,4 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
       imagesHTML +
       '<div class="projekt-description"><p>' + desc + '</p></div>' +
     '</section>';
+
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });

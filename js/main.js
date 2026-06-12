@@ -2,19 +2,19 @@
 
 // Render chronological project timeline
 function renderKronologisk() {
-  const timeline = document.querySelector('.timeline');
-  if (!timeline || typeof PROJECTS === 'undefined' || PROJECTS.length === 0) return;
+  const view = document.getElementById('kronologisk');
+  if (!view || typeof PROJECTS === 'undefined' || PROJECTS.length === 0) return;
 
-  const sorted = [...PROJECTS].sort((a, b) => b.year - a.year);
+  const sorted = [...PROJECTS].sort(function(a, b) { return b.year - a.year; });
 
-  timeline.innerHTML = '';
-  sorted.forEach(project => {
+  view.innerHTML = '';
+  sorted.forEach(function(project) {
     const entry = document.createElement('div');
     entry.className = 'timeline-entry';
     entry.innerHTML =
       '<span class="timeline-entry-year">' + project.year + '</span>' +
-      '<a href="projekt.html?id=' + project.id + '" class="timeline-entry-title">' + project.title + '</a>';
-    timeline.appendChild(entry);
+      '<a href="projekt.html?id=' + encodeURIComponent(project.id) + '" class="timeline-entry-title">' + project.title + '</a>';
+    view.appendChild(entry);
   });
 }
 
@@ -65,7 +65,7 @@ function renderTematisk() {
       projects.forEach(function(p) {
         const pli = document.createElement('li');
         pli.innerHTML =
-          '<a href="projekt.html?id=' + p.id + '">' +
+          '<a href="projekt.html?id=' + encodeURIComponent(p.id) + '">' +
           p.title +
           '<span class="theme-project-year"> ' + p.year + '</span>' +
           '</a>';
@@ -94,8 +94,11 @@ function initProjectsToggle() {
     btn.addEventListener('click', function() {
       const target = btn.getAttribute('data-view');
 
-      buttons.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+      buttons.forEach(function(b) {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', String(isActive));
+      });
 
       views.forEach(function(v) {
         v.hidden = v.id !== target;
@@ -104,8 +107,15 @@ function initProjectsToggle() {
   });
 }
 
+// Keep footer year current
+function updateFooterYear() {
+  const el = document.getElementById('footer-year');
+  if (el) el.textContent = new Date().getFullYear();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   renderKronologisk();
   renderTematisk();
   initProjectsToggle();
+  updateFooterYear();
 });
